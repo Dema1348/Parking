@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "ngmap": "^1.17.6",
-    "angular-chart.js": "^1.0.3"
+    "angular-gravatar": "^0.4.2"
   }
 }

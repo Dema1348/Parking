@@ -1,3 +1,318 @@
 /*
  *  Your app styles
  */
+
+$gris: #191F28!default;
+$gris-claro :#2C3239!default;
+$verde: #06BEBD!default;
+$gris-text: #FFFFFF!default;
+$amarillo: #B7CE63!default;
+$gris-modal:#9DA1A7!default;
+
+//login
+.login{
+	background: $gris;
+    .caja{
+    	max-width: 350px;
+    	margin: 0 auto;
+        background: transparent;
+        border: none;
+    	.logo{
+    		width: 100px;
+		    height: 100px;
+		    line-height: 100px;
+		    font-size: 86px;
+		    font-weight: 500;
+		    margin: 32px auto;
+		    color: #fff;
+		    border-radius: 2px;
+		    background-color: $gris-claro;
+    		.letra{
+    			    color: #ffffff;
+    		}
+    	}
+        .eslogan{
+            color:$gris-text;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+    }
+    label{
+        background: $gris-claro;
+        margin-top: 10px;
+        border: none;
+        text-align: center;
+        input{
+             color:$gris-text;
+        }
+        input::-webkit-input-placeholder {
+       color: $gris-text;
+       text-align: center;
+        }
+
+        input:-moz-placeholder {
+           color: $gris-text;  
+            text-align: center;
+        }
+
+        input::-moz-placeholder {  
+           color: $gris-text; 
+            text-align: center; 
+        }
+
+        input:-ms-input-placeholder {  
+           color: $gris-text;  
+            text-align: center;
+        }
+
+    }
+
+    .button-parking{
+        background: none;
+        border: 1px solid $gris-text;
+        color:$gris-text;
+        padding: 8px;
+        border-radius: 35px;
+        -moz-border-radius: 35px;
+        -webkit-border-radius: 35px;
+        width: 75%;
+        margin: 0 auto;
+
+    }
+
+    .new-user{
+        color: $gris-text;
+        text-align: center;
+    }
+
+}
+
+//ALERT
+.aler-parking{
+    .popup-head{
+         background: $gris-claro;
+         border: none;
+    }
+    .popup-body{
+        text-align: center;
+        color:#fff;
+        font-size: 18px;
+        background: $gris-claro;
+    }
+    .popup-buttons{
+         background: $gris-claro;
+    }
+}
+.ok-parking{
+    border-radius: 35px!important;
+    -moz-border-radius: 35px!important;
+    -webkit-border-radius: 35px!important;
+    background: $verde;
+    color:#fff;
+}
+
+
+
+//menu
+ion-side-menu .scroll{
+    background: $gris-claro;
+}
+ion-side-menu ion-content {
+  background-color: $gris; 
+}
+
+ion-side-menu ion-item.item {
+  border-right: none;
+  border-left: none;
+  border: none; 
+}
+
+ion-side-menu ion-item.item .item-content {
+    background-color: $gris; 
+}
+
+
+ion-side-menu ion-item.item .item-content .icon:before {
+      color: $verde;
+      font-size: 22px;
+      width: 32px;
+      height: 32px;
+      line-height: 32px; 
+
+}
+
+ion-side-menu ion-item.item.item-menu{
+   padding: 15px;
+   background: $gris;
+}
+
+ion-side-menu ion-item.item.item-menu.footer{
+   background: $gris-claro;
+}
+
+ion-side-menu ion-item.item.item-menu.footer .item-content{
+   background: $gris-claro;
+}
+
+ion-side-menu ion-item.item.item-menu.footer .item-content .icon:before{
+   color: $gris-text;
+}
+
+ion-side-menu ion-item.item .menu-text {
+    color: $gris-text;
+    font-weight: 500; 
+}
+ion-side-menu ion-item.item:first-child {
+  border-top: none; 
+ 
+}
+ion-side-menu ion-item.item:last-child {
+  border-bottom: none; 
+}
+
+ion-side-menu .heading-item .item-content {
+  height: 120px;
+  padding-top: 45px;
+  padding-left: 115px;
+  padding-bottom: 0px; 
+
+}
+
+ion-side-menu .heading-item.avatar .item-content{
+  background: $gris-claro;
+
+}
+
+
+ion-side-menu .heading-item .user-image-container {
+  width: 90px;
+  position: absolute;
+  top: 16px;
+  left: 20px; 
+}
+
+ion-side-menu .heading-item .user-image-container .user-image {
+    border-radius: 50%;
+    padding: 12px;
+    width: 100%; 
+}
+ion-side-menu .heading-item .name {
+  color: #FFFFFF;
+  font-weight: 500; 
+  padding-bottom: 4px;
+  margin-top: -4px;
+}
+ion-side-menu .heading-item .correo {
+  color: $gris-text; 
+}
+
+//barra de menu
+
+.bar-gris{
+    background: $gris-claro;
+    color: $gris-text;
+}
+
+//home
+
+ng-map {
+  width: 100%;
+  height: 100% !important;
+}
+
+.mapWrap {
+  height: 100%;
+}
+
+.footer-map{
+    background: $gris;
+    color:$gris-text;
+    bottom: 0;
+    background-position: top;
+    position: absolute;
+    width: 101%;
+    border-top: 1px solid $gris-text;
+
+    .indication{
+        font-size: 16px;
+        padding-left: 20px;
+        padding-top: 10px;
+    }
+    .range{
+        background: $gris;
+        border: none;
+        color: $gris-text;
+        input{
+           display: inline-block;
+            overflow: hidden;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-right: 2px;
+            padding-left: 1px;
+            width: auto;
+            height: 43px;
+            outline: none;
+            background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $verde), color-stop(100%, $amarillo));
+            background: linear-gradient(to right,$verde 0%, $amarillo 100%);
+            background-position: center;
+            background-size: 99% 2px;
+            background-repeat: no-repeat;
+            -webkit-appearance: none;
+        }
+    }
+}
+
+
+.modal{
+    .direccion{
+        color:#242A34;
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+    }
+    .dueno{
+        color: $gris-modal;
+
+        .row{
+            padding: 5px 0 5px 5px;
+            .col{
+                 overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                 .icon:before {
+                  text-align: center;
+                  background-color: #F7F7F8;
+                  color: #B3BDC2;
+                  border-radius: 50%;
+                  font-size: 22px;
+                  width: 32px;
+                  height: 32px;
+                  line-height: 32px;
+                }
+            }
+        }
+    }
+    .foto{
+       height: 45%;
+       width: 100%;
+    }
+    .footer{
+        background: $verde;
+        color: #ffffff;
+        padding: 14px;
+        text-align: center;
+      .costo{
+          font-size: 17px;
+      }
+      .info{
+        font-size: 13px;
+        color: #F2FDFF;
+
+      }
+        
+    }
+
+}
+
+

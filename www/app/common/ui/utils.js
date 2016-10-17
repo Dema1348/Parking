@@ -29,7 +29,9 @@
       var opts = {};
       if(title)  { opts.title    = title;   }
       if(message){ opts.template = message; }
-      opts.okText = buttons && buttons.length > 0 ? buttons[0] : 'Ok';
+      opts.okText = buttons && buttons.length > 0 ? buttons[0] : 'ACEPTAR';
+      opts.okType     ='ok-parking';
+      opts.cssClass='aler-parking';
       return $ionicPopup.alert(opts);
     }
 

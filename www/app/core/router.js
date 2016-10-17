@@ -22,6 +22,17 @@
         controllerAs: 'vm'
 
       })
+
+        .state('app.home', {
+        url: '/home',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/home/home.html',
+            controller: 'Home',
+             controllerAs: 'vm'
+          }
+        }
+      })
       
       .state('app.sensors', {
         url: '/sensors',
@@ -33,6 +44,9 @@
           }
         }
       })
+
+    
+
 
       .state('app.sensor', {
         url: '/sensors/sensor',

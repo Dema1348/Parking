@@ -1,4 +1,4 @@
 (function() {
 	angular
-		.module('app.paho', []);
+		.module('app.api', []);
 })();

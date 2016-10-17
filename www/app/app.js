@@ -5,14 +5,16 @@
                           //Modulos externos
                           'ngMap',
                           'ngLocale',
-                          'chart.js',
+                          'ui.gravatar',
+                          'angular-storage',
                           //Modulos de la aplicación  
                           'app.core',
+                          'app.api',
                           'app.login',
                           'app.common',
                           'app.menu',
                           'app.sensors',
+                          'app.home',
                           'app.sensor',
-                          'app.settings',
-                          'app.paho'])
+                          'app.settings'])
 })();

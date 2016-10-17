@@ -1,19 +1,29 @@
-<ion-view title="Login">
-  <ion-content>
-    <form ng-submit="vm.login(vm.data.credentials)">
+<ion-view title="Login" class="login">
+  <ion-content class="padding">
+
+    <div class="caja ">
+      <form name="vm.formLogin"  novalidate>
+
+       <div class="logo text-center">
+            <span class="letra">P<span>
+      </div>
+      <div class="eslogan">
+        Parking, la nueva forma de encontrar estacionacionamiento
+      </div>
+
       <div class="list padding">
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Login</span>
-          <input type="text" placeholder="Login" ng-model="vm.data.credentials.login">
+        <label class="item item-input">
+          <input type="text" placeholder="Correo" ng-model="vm.data.credenciales.correo" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i" ng-required='true'>
         </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Password</span>
-          <input type="password" placeholder="Password" ng-model="vm.data.credentials.password">
+        <label class="item item-input">
+          <input type="password" placeholder="Contraseña" ng-model="vm.data.credenciales.password" ng-required='true'>
         </label>
       </div>
       <div class="padding">
-        <button type="submit" class="button button-block button-positive" ng-disabled="!vm.data.credentials.login">Login</button>
+        <button type="submit" class="button button-block button-parking" ng-disabled="vm.formLogin.$invalid" ng-click="vm.doLogin()">Login</button>
       </div>
     </form>
+    <div class="new-user">¿No tienes una cuenta?</div>
+    </div>
   </ion-content>
 </ion-view>

@@ -5,21 +5,22 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Ionic</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
-
+    
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/lodash/lodash.min.js"></script>
     <script src="lib/moment/min/moment.min.js"></script>
     <script src="lib/moment/locale/es.js"></script>
-    <script src="app/paho/mqttws31.js"></script>
     <script src="lib/ngmap/build/scripts/ng-map.min.js"></script>
+    <script src='lib/swagger-js/browser/swagger-client.js'></script>
+    <script src='lib/angular-gravatar/build/angular-gravatar.js'></script>
+    <script src='lib/a0-angular-storage/dist/angular-storage.js'></script>
+
    
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
-    <script src="lib/angular-chart.js/dist/angular-chart.js"></script>
 
 
 
@@ -38,7 +39,6 @@
     <script src="app/common/plugins/toast.js"></script>
     <script src="app/common/plugins/device.js"></script>
     <script src="app/common/utils.js"></script>
-    <script src="app/common/storage.js"></script>
     <script src="app/common/ui/utils.js"></script>
     <script src="app/common/ui/generic-filters.js"></script>
 
@@ -48,18 +48,14 @@
     <script src="app/core/constants.js"></script>
     <script src="app/core/router.js"></script>
     <script src="app/core/services.js"></script>
-    <script src="app/core/mqtt.js"></script>
+    <script src="app/core/directives.js"></script>
+    <script src="app/core/angular-locale_es-cl.js"></script>
 
    
 
     <!--  menu's js -->
     <script src="app/menu/menu.module.js"></script>
     <script src="app/menu/menu.js"></script>
-
-
-    <!--  paho's js -->
-    <script src="app/paho/paho.module.js"></script>
-    <script src="app/paho/paho.js"></script>
 
     <!--  login's js -->
     <script src="app/login/login.module.js"></script>
@@ -69,6 +65,10 @@
     <script src="app/sensors/sensors.module.js"></script>
     <script src="app/sensors/sensors.js"></script>
 
+    <!--  home's js -->
+    <script src="app/home/home.module.js"></script>
+    <script src="app/home/home.js"></script>
+
     <!--  sensor's js -->
     <script src="app/sensor/sensor.module.js"></script>
     <script src="app/sensor/sensor.js"></script>
@@ -76,6 +76,11 @@
     <!--  setting's js -->
     <script src="app/settings/settings.module.js"></script>
     <script src="app/settings/settings.js"></script>
+
+    <!--  api's js -->
+    <script src="app/api/api.module.js"></script>
+    <script src="app/api/api.js"></script>
+
 
 
   </head>

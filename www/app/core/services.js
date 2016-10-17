@@ -4,17 +4,14 @@
     .module('app.core')
     .factory('Services', Services);
 
-  function Services($http, Storage, API){
+  function Services($http, Storage){
+
     return {
-      getData: getData
+      login: login
     };
 
-    function getData(){
-      return $http
-                  .get(API.backendUrl+'/sensor')
-                  .then(function(res){
-                    return res.data;
-                  });
+    function login(){
+      
         
     }
   }
