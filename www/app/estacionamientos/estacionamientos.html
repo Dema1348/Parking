@@ -1,0 +1,63 @@
+<ion-view title="PARKING" >
+  <ion-nav-buttons side="secondary">
+    <button class="button button-outline button-bar-parking icon-left ion-plus-round" ng-click="vm.create()">
+    Agregar
+    </button>
+</ion-nav-buttons>
+
+ <ion-content >
+    <ion-refresher
+    pulling-text="Tire para refrescar..."
+    on-refresh="vm.getEstacionamientos()">
+  </ion-refresher>
+
+
+  <ion-list>
+    <div class="for-general">
+
+        <div class="card" ng-repeat="estacionamiento in  vm.data.estacionamientos">
+              <div class="item item-divider">
+                Ubicado en {{estacionamiento.comuna | comuna }}
+              </div>
+              <div  class=" mapWrap2" data-tap-disabled="true">
+                <ng-map  id="map-estacionamiento-{{$index}}" zoom="14"  center="{{estacionamiento.pos}}" styles='[{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]'  disable-default-u-i="true">
+                <marker icon="{{vm.customIcon}}" position="{{estacionamiento.pos}}"  centered="true" ></marker>
+               </ng-map>
+             </div>
+               <div class="item item-text-wrap item-icon-left">
+                <i class="icon ion-stats-bars"></i>
+               Estado {{estacionamiento.estado?" habilitado":" no habilitado"}} 
+              </div>
+              <div class="item item-text-wrap item-icon-left" >
+                <i class="icon ion-calendar"></i>
+                {{estacionamiento.horarios>0 ?"Con "+estacionamiento.horarios+" horario activos": "Sin horarios activos"}}
+              </div>
+               <div class="item item-text-wrap item-icon-left">
+                <i class="icon ion-cash"></i>
+                Costo {{ estacionamiento.costo | currency:$:0}} por hora 
+              </div>
+               <div class="item item-icon-left gris" ng-click="vm.addHorarios(estacionamiento)">
+                <i class="icon ion-plus"></i>
+                Ver y agregar horarios 
+              </div>
+              <div class="item item-icon-left rojo" ng-click="vm.eliminar(estacionamiento.id, $index)">
+                <i class="icon ion-trash-a"></i>
+                Eliminar 
+              </div>
+              <div class="item item-icon-left blue" ng-click="vm.update(estacionamiento)">
+                <i class="icon ion-shuffle"></i>
+                {{estacionamiento.estado?"Desactivar":"Habilitar"}} 
+              </div>
+        </div>
+     </div>
+
+    <div ng-if="vm.data.estacionamientos && !vm.data.estacionamientos.length" >
+      <h1 class="no-data">Sin estacionamientos registrados</h1>
+   
+      <div class="sad">
+          <i class="icon ion-sad"></i>
+        </div>
+      </div>
+  </ion-list>
+</ion-content>
+</ion-view>

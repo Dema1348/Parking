@@ -1,0 +1,39 @@
+<ion-view title="PARKING" >
+ <ion-content >
+   <form name="vm.formEstacionamiento"  novalidate class="for-general">
+         <div class="card">
+          <div class="item item-divider">
+           Datos personales
+          </div>
+         <div class="item item-text-wrap item-icon-left">
+               <i class="icon ion-ios-person"></i>
+               Nombre {{vm.data.user.nombre}} 
+         </div>
+           <div class="item item-text-wrap item-icon-left">
+               <i class="icon ion-ios-person"></i>
+               Apellido Paterno {{vm.data.user.apPaterno}}
+            </div>
+           <div class="item item-text-wrap item-icon-left">
+               <i class="icon ion-ios-person"></i>
+               Apellido Materno {{vm.data.user.apMaterno}}
+            </div>
+            <div class="item item-text-wrap item-icon-left">
+               <i class="icon ion-ios-body"></i>
+               Sexo {{vm.data.user.sexo == "M" ? 'Masculino' :'Femenino'}}
+            </div>
+<!--             <div class="item item-text-wrap item-icon-left">
+               <i class="icon ion-key"></i>
+               Rol {{vm.data.user.rol==0?'Cliente':'Dueño'}}
+            </div> -->
+            <div class="item item-text-wrap item-icon-left">
+                <i class="icon ion-ios-email"></i>
+               Correo {{vm.data.user.correo}}
+            </div>
+            <div class="item item-text-wrap item-icon-left">
+                 <i class="icon ion-ios-telephone"></i>
+               Telefono {{vm.data.user.telefono}}
+            </div>
+
+  </form>
+</ion-content>
+</ion-view>

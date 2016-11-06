@@ -5,7 +5,7 @@
     .module('app.login')
     .controller('Login', Login);
 
-  function Login($scope, $state, store,UiUtils){
+  function Login($scope, $state, store,UiUtils,HOST){
     var vm = this;
     vm.doLogin= doLogin;
     vm.formLogin={};
@@ -14,7 +14,7 @@
  
     function doLogin() {
       new SwaggerClient({
-      url: 'http://localhost:10010/api-docs',
+      url: HOST,
       usePromise: true
       }).then(function(client) {
         client.Auth.login({credenciales: vm.data.credenciales})

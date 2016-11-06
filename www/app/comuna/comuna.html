@@ -1,0 +1,93 @@
+<ion-view title="PARKING" >
+ <ion-content >
+ <rating ng-model="rating.rate" max="3"></rating>
+   <form name="vm.formEstacionamiento"  novalidate class="for-general">
+    <h1 class="titulo">Ingrese los datos del formulario</h1>
+         <div class="list padding">
+             <label class="item item-input item-select">
+              <div class="input-label">
+                Region
+              </div>
+              <select ng-model="vm.data.region" ng-options="region.id as region.nombre for region in vm.data.regiones" ng-change="vm.getProvicias(vm.data.region)">
+              </select>
+            </label>
+             <label class="item item-input item-select">
+              <div class="input-label">
+                Provincia
+              </div>
+              <select ng-model="vm.data.provincia"  ng-options="provincia.id as provincia.nombre for provincia in vm.data.provincias" ng-change="vm.getComunas(vm.data.provincia)">
+              </select>
+            </label>
+              <label class="item item-input item-select">
+              <div class="input-label" required='true'>
+                Comuna
+              </div>
+              <select ng-model="vm.data.estacionamiento.comunaId"  ng-options="comuna.id as comuna.nombre for comuna in vm.data.comunas" ng-change="vm.getEstacionamientos(vm.data.estacionamiento.comunaId)">
+              </select>
+            </label>
+          
+    
+        </div>
+  </form>
+      <div class="list padding">
+       <a class="item " ng-repeat="estacionamiento in  vm.data.estacionamientos" ng-click="vm.showParking(estacionamiento)">
+        
+          Dueño   {{estacionamiento.dueno.nombre +" "+estacionamiento.dueno.apPaterno}}
+          <span class="badge badge-assertive">{{ estacionamiento.costo | currency:$:0}}</span>
+        </a>
+      </div>
+      <div ng-if="vm.data.estacionamientos && !vm.data.estacionamientos.length" >
+      <h1 class="no-data">Sin estacionamientos encontrados</h1>
+   
+      <div class="sad">
+          <i class="icon ion-sad"></i>
+        </div>
+      </div>
+</ion-content>
+ <script id="parking-modal.html" type="text/ng-template">
+      <ion-modal-view >
+        <ion-header-bar class="bar-verde">
+      <h1 class="title">Información</h1>
+      <button class="button button-outline button-bar-parking" ng-click="vm.modal.hide()">Cerrar</button>
+    </ion-header-bar>
+        <ion-content>
+        <div class="direccion">
+        {{vm.data.selectParking.direccion || "Buscando dirección"}}
+        </div>
+        <div  class=" mapWrap3" data-tap-disabled="false">
+                <ng-map  id="map-estacionamiento-modal" zoom="14"  center="{{vm.data.selectParking.geo}}" styles='[{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]'  disable-default-u-i="true" map-type-id="SATELLITE"
+      tilt="45"
+      heading="90" zoom-to-include-markers="true">
+                <marker icon="/img/mapa1.png" position="{{vm.data.selectParking.geo}}"  centered="true" ></marker>
+               </ng-map>
+         </div>
+       <div class="dueno">
+           <div class="row">
+           <div class="col col-50">
+             <i class="icon ion-ios-person-outline"></i> 
+            {{vm.data.selectParking.dueno.nombre +" "+vm.data.selectParking.dueno.apPaterno}}
+            </div>
+           
+            <div class="col col-50">
+             <i class="icon ion-ios-location-outline"></i>  {{vm.data.selectParking.comuna}}
+            </div>
+          </div>
+          <div class="row">
+             <div class="col col-50 ">
+              <i class="icon ion-ios-telephone-outline"></i> {{vm.data.selectParking.dueno.telefono}}
+            </div>
+            <div class="col col-50">
+             <i class="icon ion-ios-email-outline"></i>  {{vm.data.selectParking.dueno.correo}}</div>
+          </div>
+       </div>  
+        <div class="footer">
+          <div class="costo" >{{vm.data.selectParking.costo | currency:$:0}} por  cada hora</div>
+          <div class="info" ng-click="vm.verHorarios(vm.data.selectParking)">
+            Ver horarios disponibles
+           </div>
+        </div>
+
+        </ion-content>     
+      </ion-modal-view>
+    </script>
+</ion-view>

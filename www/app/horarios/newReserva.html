@@ -1,0 +1,43 @@
+<div class="modal">
+        <ion-header-bar class="bar-verde">
+        <button class="button button-outline button-bar-parking" ng-click="vm.modal3.hide()">Cerrar</button>
+      <h1 class="title">Nuevo Reserva</h1>
+      <button class="button button-outline button-bar-parking" ng-disabled="vm.formReserva.$invalid ||  !vm.data.reserva.autoPatente" ng-click="vm.createReserva()">Reservar</button>
+    </ion-header-bar>
+        <ion-content>
+        <div class="direccion">Ingrese los datos del formulario para un nueva reserva </br>
+        	Con un costo de  <span class="blue">{{vm.data.reserva.costo | currency:$:0}}<span></div>
+         <form name="vm.formReserva"  novalidate class="for-general"> 
+           <div class="item item-divider">
+      Para el día
+            </div>
+              <label class="item item-input" >
+            <input type="date" ng-model="vm.data.reserva.dia" ng-required='true'>
+          </label> 
+           <div class="item item-divider">
+      Hora Entrada
+            </div>
+          <label class="item item-input" >
+            <input type="time" placeholder="HH:mm" min="{{vm.data.reserva.horaInicio  | date:'HH:mm:ss'}}" max="{{vm.data.reserva.horaTermino  | date:'HH:mm:ss'}}" ng-model="vm.data.reserva.horaEntrada" ng-required='true' ng-change="vm.recalcular()">
+          </label>  
+         <div class="item item-divider">
+      Hora Salida
+            </div>
+              <label class="item item-input" >
+            <input type="time" placeholder="HH:mm" min="{{vm.data.reserva.horaEntrada  | date:'HH:mm:ss'}}" max="{{vm.data.reserva.horaTermino  | date:'HH:mm:ss'}}" ng-model="vm.data.reserva.horaSalida"required='true'  ng-change="vm.recalcular()">
+          </label> 
+           <div class="item item-divider">
+     	 Auto
+            </div>
+            <label class="item item-input item-select">
+	           <div class="input-label">
+	              Patente
+	            </div>
+	             <select ng-model="vm.data.reserva.autoPatente"  ng-options="auto.patente as auto.patente for auto in vm.data.autos">
+              </select>
+	          </label>
+
+         
+       </form>  
+        </ion-content>     
+</div>

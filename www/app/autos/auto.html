@@ -1,0 +1,37 @@
+<ion-view title="PARKING" >
+  <ion-nav-buttons side="secondary">
+    <button class="button button-bar-send" ng-click="vm.send(vm.data.auto)" ng-disabled="vm.formAuto.$invalid  ">
+    Enviar
+    </button>
+</ion-nav-buttons>
+
+ <ion-content >
+
+	 <form name="vm.formAuto"  novalidate class="for-general">
+	 	<h1 class="titulo">Ingrese los datos del formulario para crear un nuevo auto</h1>
+	       <div class="list padding">
+	  
+	        <label class="item item-input" ng-class="{ 'has-errors' : vm.formAuto.patente.$invalid && vm.formAuto.patente.$touched}">
+	          <input type="text" placeholder="Pantente" ng-model="vm.data.auto.patente" ng-required='true' name="patente" maxLength="25">
+	        </label> 
+	         <label class="item item-input"  ng-class="{ 'has-errors' : vm.formAuto.marca.$invalid && vm.formAuto.marca.$touched}"  >
+	          <input type="text" placeholder="Marca" ng-model="vm.data.auto.marca" ng-required='true' name="marca" maxLength="25">
+	        </label> 
+	        <label class="item item-input"  ng-class="{ 'has-errors' : vm.formAuto.color.$invalid && vm.formAuto.color.$touched}"  >
+	          <input type="text" placeholder="Color" ng-model="vm.data.auto.color" ng-required='true' name="color" maxLength="25">
+	        </label>  
+
+	        <label class="item item-input"  ng-class="{ 'has-errors' : vm.formAuto.motor.$invalid && vm.formAuto.motor.$touched}"  >
+	          <input type="text" placeholder="Motor" ng-model="vm.data.auto.motor" maxLength="25" name="motor">
+	        </label>  
+	        <label class="item item-input"  ng-class="{ 'has-errors' : vm.formAuto.chasis.$invalid && vm.formAuto.chasis.$touched}"  >
+	          <input type="text" placeholder="chasis" ng-model="vm.data.auto.chasis" maxLength="25" name="chasis" >
+	        </label>   
+	        
+	  
+	      </div>
+	</form>
+	 
+
+</ion-content>
+</ion-view>

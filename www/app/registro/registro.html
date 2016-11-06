@@ -1,0 +1,81 @@
+<ion-view title="Login" class="login">
+  <ion-content class="padding">
+
+    <div class="caja ">
+      <form name="vm.formRegistro"  novalidate>
+
+       <div class="logo text-center">
+            <span class="letra">P<span>
+      </div>
+      <div class="eslogan">
+        Parking, la nueva forma de encontrar estacionacionamiento
+      </div>
+
+      <div class="list padding">
+        <h2 class="sub-titulo">Datos Personales</h2>
+          <label class="item item-input" ng-class="{ 'has-errors' : vm.formRegistro.rut.$invalid && vm.formRegistro.rut.$touched}">
+          <input type="text" ng-rut placeholder="Rut" ng-model="vm.data.newUser.rut" ng-required='true' name="rut">
+        </label>
+        <label class="item item-input"  ng-class="{ 'has-errors' : vm.formRegistro.nombre.$invalid && vm.formRegistro.nombre.$touched}">
+          <input type="text" placeholder="Nombre" ng-model="vm.data.newUser.nombre" ng-required='true'  name="nombre">
+        </label>
+        <label class="item item-input" ng-class="{ 'has-errors' : vm.formRegistro.apPaterno.$invalid && vm.formRegistro.apPaterno.$touched}">
+          <input type="text" placeholder="Apellido Paterno" ng-model="vm.data.newUser.apPaterno" ng-required='true' name="apPaterno">
+        </label>
+       <label class="item item-input" ng-class="{ 'has-errors' : vm.formRegistro.apMaterno.$invalid && vm.formRegistro.apMaterno.$touched}">
+          <input type="text" placeholder="Apellido Materno" ng-model="vm.data.newUser.apMaterno" ng-required='true' name="apMaterno">
+        </label>
+
+       <!--  <label class="item item-input"  ng-class="{ 'has-errors' : vm.formRegistro.fechaNac.$invalid && vm.formRegistro.fechaNac.$touched}">
+          <input type="date" placeholder="Fecha Nacimiento dd-mm-yyyy" ng-model="vm.data.newUser.fechaNac" ng-required='true' name="fechaNac">
+        </label>
+ -->
+      <label class="item item-input item-select" >
+             <div class="input-label">
+                Sexo
+              </div>
+              <select  ng-model="vm.data.newUser.sexo ">
+                <option value="M">Masculino</option>
+                <option value="F">Femenio</option>
+              </select>
+
+      </label>
+        <h2 class="sub-titulo">Datos Usuario</h2>
+
+        <label class="item item-input item-select" >
+             <div class="input-label">
+                Rol
+              </div>
+              <select  ng-model="vm.data.newUser.rol ">
+                <option value="0">Cliente</option>
+                <option value="1">Dueño</option>
+              </select>
+      </label>
+        <label class="item item-input"  ng-class="{ 'has-errors' : vm.formRegistro.password.$invalid && vm.formRegistro.password.$touched}">
+          <input type="password" placeholder="Contraseña" ng-model="vm.data.newUser.password" ng-required='true' name="password">
+        </label>
+
+
+        <label class="item item-input"  ng-class="{ 'has-errors' : vm.formRegistro.correo.$invalid && vm.formRegistro.correo.$touched}">
+          <input type="text" placeholder="Correo" ng-model="vm.data.newUser.correo" ng-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i" ng-required='true' name="correo">
+        </label>
+        <label class="item item-input" ng-class="{ 'has-errors' : vm.formRegistro.telefono.$invalid && vm.formRegistro.telefono.$touched}">
+          <input type="number" placeholder="Telefono" ng-model="vm.data.newUser.telefono"  ng-required='true' name="telefono" min="0">
+        </label>
+        <h2 class="sub-titulo">Datos Bancarios</h2>
+       <label class="item item-input" ng-class="{ 'has-errors' : vm.formRegistro.numeroTarjeta.$invalid && vm.formRegistro.numeroTarjeta.$touched}">
+          <input type="number" placeholder="Numero Tarjeta" ng-model="vm.data.newUser.numeroTarjeta"  ng-required='true' name="numeroTarjeta" min="0">
+        </label>
+         <label class="item item-input" ng-class="{ 'has-errors' : vm.formRegistro.cv.$invalid && vm.formRegistro.cv.$touched}">
+          <input type="text" placeholder="CV" ng-model="vm.data.newUser.cv"  ng-required='true' name="cv">
+        </label>
+
+
+      <div class="padding">
+        <button type="submit" class="button button-block button-parking" ng-disabled="vm.formRegistro.$invalid" ng-click="vm.doRegistro()">Registrarte</button>
+      </div>
+    </form>
+      <div class="new-user">¿Ya tienes una cuenta?</div>
+    </div>
+  </ion-content>
+</ion-view>

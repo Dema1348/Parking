@@ -4,23 +4,29 @@
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>Ionic</title>
+    <title>Parking</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
     
+    <link rel="stylesheet" href="lib/ionic-calendar/dist/css/calendar.min.css"/>
+
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/lodash/lodash.min.js"></script>
-    <script src="lib/moment/min/moment.min.js"></script>
-    <script src="lib/moment/locale/es.js"></script>
     <script src="lib/ngmap/build/scripts/ng-map.min.js"></script>
     <script src='lib/swagger-js/browser/swagger-client.js'></script>
     <script src='lib/angular-gravatar/build/angular-gravatar.js'></script>
     <script src='lib/a0-angular-storage/dist/angular-storage.js'></script>
-
+    <script src='lib/angular-rut/dist/angular-rut.js'></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
+    <script src="lib/moment/locale/es.js"></script>
+    <script src="lib/angular-date-time-input/src/dateTimeInput.js"></script>
+    <script src="lib/ionic-rating/ionic-rating.min.js"></script>
    
+    <script src="lib/ionic-calendar/dist/js/calendar-tpls.min.js"></script>
 
 
 
@@ -51,6 +57,7 @@
     <script src="app/core/directives.js"></script>
     <script src="app/core/angular-locale_es-cl.js"></script>
 
+
    
 
     <!--  menu's js -->
@@ -69,9 +76,47 @@
     <script src="app/home/home.module.js"></script>
     <script src="app/home/home.js"></script>
 
-    <!--  sensor's js -->
-    <script src="app/sensor/sensor.module.js"></script>
-    <script src="app/sensor/sensor.js"></script>
+    <!--  estacionamientos's js -->
+    <script src="app/estacionamientos/estacionamientos.module.js"></script>
+    <script src="app/estacionamientos/estacionamientos.js"></script>
+    <script src="app/estacionamientos/estacionamientosDenegado.js"></script>
+    <script src="app/estacionamientos/estacionamiento.js"></script>
+
+    <!--  horarios's js -->
+    <script src="app/horarios/horarios.module.js"></script>
+    <script src="app/horarios/horarios.js"></script>
+
+    <!--  arriendos's js -->
+    <script src="app/arriendos/arriendos.module.js"></script>
+    <script src="app/arriendos/arriendos.js"></script>
+
+    <!--  auto's js -->
+    <script src="app/autos/autos.module.js"></script>
+    <script src="app/autos/autos.js"></script>
+    <script src="app/autos/auto.js"></script>
+    <script src="app/autos/autoEdit.js"></script>
+
+    <!--  comuna's js -->
+    <script src="app/comuna/comuna.module.js"></script>
+    <script src="app/comuna/comuna.js"></script>
+
+    <!--  perfil's js -->
+    <script src="app/perfil/perfil.module.js"></script>
+    <script src="app/perfil/perfil.js"></script>
+
+
+    <!--  tarjeta's js -->
+    <script src="app/tarjeta/tarjeta.module.js"></script>
+    <script src="app/tarjeta/tarjeta.js"></script>
+
+     <!--  registro's js -->
+    <script src="app/registro/registro.module.js"></script>
+    <script src="app/registro/registro.js"></script>
+
+     <!--  registro's js -->
+    <script src="app/pagos/pagos.module.js"></script>
+    <script src="app/pagos/pagos.js"></script>
+
 
     <!--  setting's js -->
     <script src="app/settings/settings.module.js"></script>
@@ -80,6 +125,9 @@
     <!--  api's js -->
     <script src="app/api/api.module.js"></script>
     <script src="app/api/api.js"></script>
+    
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyCrS2hfSYtu35Zp_R9qMkAp5HqFz6_B_pI"></script>
+
 
 
 

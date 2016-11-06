@@ -11,10 +11,13 @@
     vm.data.user=user;
 
     function logout(){
-      store.remove('user');
-      $ionicHistory.clearHistory();
-      $ionicHistory.clearCache();
-      $state.go('login');
+       $ionicHistory.clearCache(['app']).then(function() {
+           store.remove('user');
+          $ionicHistory.clearHistory();
+          $ionicHistory.clearCache();
+          $state.go('login');
+     
+       });
      
     };
 

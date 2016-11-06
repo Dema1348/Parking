@@ -1,0 +1,57 @@
+<div class="modal">
+    <ion-header-bar class="bar-verde">
+      <h1 class="title">Detalle de reserva </h1>
+      <button class="button button-outline button-bar-parking" ng-click="vm.modal2.hide()">Cerrar</button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="arredador">
+           <div class="row">
+           <div class="col ">
+             <i class="icon ion-ios-person-outline"></i> 
+            Cliente: {{vm.data.detalleReserva.nombre +" "+vm.data.detalleReserva.apPaterno}}
+            </div>
+          </div>
+          <div class="row">
+  		  	<div class="col ">
+             <i class="icon ion-social-usd"></i> Costo: {{vm.data.detalleReserva.total | currency:$:0}}
+            </div>
+  		  </div>
+  		   <div class="row">
+  		  	<div class="col ">
+             <i class="icon ion-calendar"></i> Fecha de arriendo: {{vm.data.detalleReserva.horaEntrada | amDateFormat:'dddd Do MMMM, YYYY'}}
+            </div>
+  		  </div>
+  		   <div class="row">
+  		  	<div class="col ">
+             <i class="icon ion-ios-time"></i> Hora de entrada: {{vm.data.detalleReserva.horaEntrada | date :'shortTime'}}
+            </div>
+  		  </div>
+  		   <div class="row">
+  		  	<div class="col ">
+             <i class="icon ion-ios-time-outline"></i> Hora de salida: {{vm.data.detalleReserva.horaSalida | date :'shortTime'}}
+            </div>
+  		  </div>
+  		   <div class="row">
+  		  	<div class="col ">
+             <i class="icon ion-model-s"></i>Patente del auto: {{vm.data.detalleReserva.autoPatente}}
+            </div>
+  		  </div>
+          <div class="row">
+             <div class="col  ">
+              <i class="icon ion-ios-telephone-outline"></i> Telefono del cliente: {{vm.data.detalleReserva.telefono}}
+            </div>
+  		  </div>
+  		  <div class="row">
+  		  	<div class="col ">
+             <i class="icon ion-ios-email-outline"></i> Correo del cliente: {{vm.data.detalleReserva.correo}}
+            </div>
+  		  </div>  
+  		  <div class="row">
+  		  	<div class="col">
+  		  		<button class="button button-block button-assertive rojo-background" ng-click="vm.eliminarReserva(vm.data.detalleReserva.id)">Cancelar Reserva</button>
+  		  	</div>
+  		  </div>
+
+    </ion-content>     
+</div>
+

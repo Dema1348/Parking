@@ -1,45 +1,11 @@
 (function(){
   'use strict';
   angular.module('app.common')
-    .filter('date', formatDate)
-    .filter('time', formatTime)
-    .filter('datetime', formatDatetime)
     .filter('reverse', reverseArray)
     .filter('with', withArray)
     .filter('inSlicesOf', filterInSlicesOf);
 
-  function formatDate(){
-    return function(date, format){
-      var mDate = moment(date);
-      if(date && mDate.isValid()){
-        return mDate.format(format ? format : 'D MMMM YYYY');
-      } else {
-        return date;
-      }
-    }
-  }
 
-  function formatTime(){
-    return function(date, format){
-      var mDate = moment(date);
-      if(date && mDate.isValid()){
-        return mDate.format(format ? format : 'HH:mm');
-      } else {
-        return date;
-      }
-    }
-  }
-
-  function formatDatetime(){
-    return function(date, format){
-      var mDate = moment(date);
-      if(date && mDate.isValid()){
-        return mDate.format(format ? format : 'DD/MM/YYYY HH:mm');
-      } else {
-        return date;
-      }
-    }
-  }
 
   function reverseArray(){
     return function(items){

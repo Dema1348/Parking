@@ -1,0 +1,58 @@
+<ion-view title="PARKING" >
+  <ion-nav-buttons side="secondary">
+    <button class="button button-outline button-bar-parking icon-left ion-plus-round" ng-click="vm.create()">
+    Agregar
+    </button>
+</ion-nav-buttons>
+
+ <ion-content >
+    <ion-refresher
+    pulling-text="Tire para refrescar..."
+    on-refresh="vm.getAutos()">
+  </ion-refresher>
+
+
+  <ion-list>
+     <div class="for-general">
+
+        <div class="card" ng-repeat="auto in vm.data.autos">
+              <div class="item item-divider">
+                Auto  {{auto.patente}}
+              </div>
+               <div class="item item-text-wrap item-icon-left">
+                <i class="icon ion-model-s"></i>
+                Patente {{auto.patente}}
+              </div>
+              <div class="item item-text-wrap item-icon-left" ng-if="auto.marca">
+                <i class="icon ion-bookmark"></i>
+                Marca {{auto.marca }}
+              </div>
+               <div class="item item-text-wrap item-icon-left" ng-if="auto.color">
+                <i class="icon ion-paintbucket "></i>
+                Color {{auto.color }}
+              </div>
+                <div class="item item-text-wrap item-icon-left" ng-if="auto.chasis">
+                  <i class="icon ion-asterisk"></i>
+                Chasis {{auto.chasis }}
+              </div>
+              <div class="item item-icon-left rojo" ng-click="vm.eliminar(auto.patente, $index)">
+                <i class="icon ion-trash-a"></i>
+                Eliminar 
+              </div>
+              <div class="item item-icon-left blue" ng-click="vm.edit(auto)">
+                <i class="icon ion-edit"></i>
+                Editar
+              </div>
+        </div>
+  </div>
+
+    <div ng-if="vm.data.autos &&  !vm.data.autos.length" >
+      <h1 class="no-data">Sin autos registrados</h1>
+   
+      <div class="sad">
+          <i class="icon ion-sad"></i>
+        </div>
+      </div>
+  </ion-list>
+</ion-content>
+</ion-view>

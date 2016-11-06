@@ -6,6 +6,8 @@ $gris: #191F28!default;
 $gris-claro :#2C3239!default;
 $verde: #06BEBD!default;
 $gris-text: #FFFFFF!default;
+$titulo-text: #3C4350!default;
+$cuerpo-text: #696D6F!default;
 $amarillo: #B7CE63!default;
 $gris-modal:#9DA1A7!default;
 
@@ -37,35 +39,49 @@ $gris-modal:#9DA1A7!default;
             text-align: center;
             margin-bottom: 5px;
         }
+        .sub-titulo{
+          color: #fff;
+        font-size: 20px;
+        font-weight: 400;
+      }
     }
     label{
         background: $gris-claro;
         margin-top: 10px;
         border: none;
-        text-align: center;
+
         input{
              color:$gris-text;
         }
         input::-webkit-input-placeholder {
        color: $gris-text;
-       text-align: center;
         }
 
         input:-moz-placeholder {
            color: $gris-text;  
-            text-align: center;
+    
         }
 
         input::-moz-placeholder {  
            color: $gris-text; 
-            text-align: center; 
+     
         }
 
         input:-ms-input-placeholder {  
            color: $gris-text;  
-            text-align: center;
+    
         }
 
+    }
+    .input-label{
+          color: #FFFFFF;
+          font-size: 15px;
+
+    }
+
+   select{
+          background: $gris-claro;
+          color:#ffffff;
     }
 
     .button-parking{
@@ -82,9 +98,13 @@ $gris-modal:#9DA1A7!default;
     }
 
     .new-user{
-        color: $gris-text;
+        color: $verde;
+        margin-top: 6px;
+        font-size: 15px;
         text-align: center;
     }
+
+  
 
 }
 
@@ -97,12 +117,54 @@ $gris-modal:#9DA1A7!default;
     .popup-body{
         text-align: center;
         color:#fff;
-        font-size: 18px;
+        font-size: 16px;
         background: $gris-claro;
     }
     .popup-buttons{
          background: $gris-claro;
     }
+}
+
+//Calificacoin
+.calificacion-parking{
+    .popup-head{
+         background: #fff;
+         border: none;
+         .popup-title {
+          font-size: 18px;
+          color: $gris-claro ;
+          .name{
+            color: $verde;
+          }
+         }
+         .popup-sub-title {
+          font-size: 16px;
+           color: $gris-claro ;
+         }
+
+    }
+    .popup-body{
+        text-align: center;
+        color:$gris-text;
+        font-size: 16px;
+        background: #fff;
+    }
+    .popup-buttons{
+         background: #fff;
+    }
+}
+
+
+ul.rating li {
+  display: inline;
+  border: 0px;
+  background: none;
+  padding: 5px 5px;
+}
+ul.rating li i {
+  font-size: 30px;
+  color: $verde;
+
 }
 .ok-parking{
     border-radius: 35px!important;
@@ -112,6 +174,13 @@ $gris-modal:#9DA1A7!default;
     color:#fff;
 }
 
+.no-parking{
+    border-radius: 35px!important;
+    -moz-border-radius: 35px!important;
+    -webkit-border-radius: 35px!important;
+    background: #fff;
+    color:$verde;
+}
 
 
 //menu
@@ -214,6 +283,23 @@ ion-side-menu .heading-item .correo {
     color: $gris-text;
 }
 
+.bar-verde{
+    background: $verde;
+    h1{
+      color: #fff;
+    }
+}
+
+.button-bar-send{
+  background: none;
+  color:$verde;
+}
+
+.button-bar-parking{
+    color: #FFFFFF!important;
+    border-color:#ffffff!important;
+}
+
 //home
 
 ng-map {
@@ -224,7 +310,13 @@ ng-map {
 .mapWrap {
   height: 100%;
 }
+.mapWrap2 {
+  height: 250px;
+}
 
+.mapWrap3 {
+  height: 125px;
+}
 .footer-map{
     background: $gris;
     color:$gris-text;
@@ -270,12 +362,13 @@ ng-map {
         padding: 20px;
         text-align: center;
         font-size: 18px;
+        min-height:70px;
     }
-    .dueno{
-        color: $gris-modal;
+    .dueno,.arredador{
+        color:$gris;
 
         .row{
-            padding: 5px 0 5px 5px;
+            padding: 15px 0 15px 0px;
             .col{
                  overflow: hidden;
                 white-space: nowrap;
@@ -294,20 +387,21 @@ ng-map {
         }
     }
     .foto{
-       height: 45%;
+       height: 35%;
        width: 100%;
     }
     .footer{
-        background: $verde;
-        color: #ffffff;
-        padding: 14px;
+        background: #ffffff;
+        color: $verde;
+        padding: 22px;
         text-align: center;
+        border: 1px solid $verde;
       .costo{
-          font-size: 17px;
+          font-size: 22px;
       }
       .info{
-        font-size: 13px;
-        color: #F2FDFF;
+        font-size: 35px;
+        color: $verde;
 
       }
         
@@ -315,4 +409,130 @@ ng-map {
 
 }
 
+@media (min-width: 680px){
+  .modal{
+    min-height: 459px;
+  }
+}
 
+
+//my-parking
+
+.my-parking{
+    padding-left: 120px;
+    min-height: 110px;
+    img{
+            max-width: 90px!important;
+            max-height: 90px!important;
+    }
+    .address{
+        color: $titulo-text;
+        margin-top: 3px;
+    }
+    .info{
+        color: $cuerpo-text;
+   
+    }
+    .costo{
+        margin-top:5px; 
+        font-size: 15px;
+        font-weight: 400px;
+    }
+}
+
+
+//Formularios generales
+
+.for-general{
+  .titulo{
+    color: $titulo-text;
+    font-size: 25px;
+    font-weight: 400;
+    padding: 14px;
+  }
+  .sub-titulo{
+      color: $titulo-text;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .item{
+  color:$cuerpo-text;
+  }
+
+   .item-divider{
+    background: $gris-claro;
+    color: $gris-text;
+  }
+
+
+}
+
+.no-data{
+    color: $titulo-text;
+    font-size: 25px;
+    font-weight: 400;
+    padding: 14px;
+  }
+
+
+  .sad{
+    color: $verde;
+    font-size: 122px;
+    text-align: center;
+
+  }
+  
+//Calendar
+.monthview-selected{
+  background: $verde!important;
+}
+.calendar-event-inner, .monthview-primary-with-event{
+  background: $gris-claro!important;
+}
+.monthview-secondary-with-event{
+    background: $cuerpo-text!important;
+}
+
+//Table
+.table-head{
+  color:$titulo-text!important;
+}
+
+.table-body{
+  color:$cuerpo-text!important;
+}
+
+.declaimer{
+  color:$cuerpo-text!important;
+  font-style: italic;
+}
+
+//UTILS
+.rojo{
+  color:#B71C1C!important;
+}
+
+.rojo-background{
+  background: #B71C1C!important;
+}
+
+.bloque-ocupado{
+  background: #B71C1C!important;
+}
+
+.bloque{
+   background: $verde!important;
+}
+
+.blue{
+  color:$verde!important;
+}
+
+.gris{
+  color:$gris!important;
+}
+
+
+  .has-errors {
+       border-bottom: 2px solid #B71C1C!important;
+    }

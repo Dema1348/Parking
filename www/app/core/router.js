@@ -12,6 +12,14 @@
         templateUrl: 'app/login/login.html',
         controller: 'Login',
         controllerAs: 'vm'
+      })     
+
+
+       .state('registro', {
+        url: '/registro',
+        templateUrl: 'app/registro/registro.html',
+        controller: 'Registro',
+        controllerAs: 'vm'
       })
       
       .state('app', {
@@ -19,7 +27,10 @@
         abstract: true,
         templateUrl: 'app/menu/menu.html',
         controller: 'Menu',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+
+
+
 
       })
 
@@ -31,21 +42,178 @@
             controller: 'Home',
              controllerAs: 'vm'
           }
-        }
+        },
+        cache:false,
+         authenticate: true
       })
       
-      .state('app.sensors', {
-        url: '/sensors',
+      .state('app.estacionamientos', {
+        url: '/estacionamientos',
         views: {
           'menuContent': {
-            templateUrl: 'app/sensors/sensors.html',
-            controller: 'Sensors',
+            templateUrl: 'app/estacionamientos/estacionamientos.html',
+            controller: 'Estacionamientos',
              controllerAs: 'vm'
           }
-        }
+        },
+        cache:false,
+         authenticate: true,
+         dueno:true
       })
 
-    
+      .state('app.newEstacionamiento', {
+        url: '/estacionamientos/nuevo',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/estacionamientos/estacionamiento.html',
+            controller: 'Estacionamiento',
+             controllerAs: 'vm'
+          }
+        },
+         authenticate: true,
+        dueno:true
+
+      })
+
+        .state('app.estacionamientosDenegado', {
+        url: '/estacionamientosDenegado',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/estacionamientos/estacionamientosDenegado.html',
+            controller: 'EstacionamientosDenegado',
+             controllerAs: 'vm'
+          }
+        },
+         authenticate: true,
+      })
+
+
+     .state('app.autos', {
+        url: '/autos',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/autos/autos.html',
+            controller: 'Autos',
+             controllerAs: 'vm'
+          }
+        },
+        cache:false,
+         authenticate: true
+      })
+
+     .state('app.newAuto', {
+        url: '/autos/nuevo',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/autos/auto.html',
+            controller: 'Auto',
+             controllerAs: 'vm'
+          }
+        },
+         authenticate: true
+      })
+
+
+          .state('app.editAuto', {
+        url: '/autos/edit',
+        params: {
+          auto: null
+        },
+        views: {
+          'menuContent': {
+            templateUrl: 'app/autos/autoEdit.html',
+            controller: 'AutoEdit',
+             controllerAs: 'vm'
+          }
+        },
+         authenticate: true
+      })
+
+        
+      .state('app.comuna', {
+        url: '/comuna',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/comuna/comuna.html',
+            controller: 'Comuna',
+             controllerAs: 'vm'
+          }
+        },
+         authenticate: true
+      })  
+
+    .state('app.horarios', {
+        url: '/horarios',
+        params: {
+          estacionamiento: null,
+          isArriendo:null
+        },
+        views: {
+          'menuContent': {
+            templateUrl: 'app/horarios/horarios.html',
+            controller: 'Horarios',
+             controllerAs: 'vm'
+          }
+        },
+        cache:false,
+         authenticate: true
+      })  
+
+
+        
+      .state('app.perfil', {
+        url: '/perfil',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/perfil/perfil.html',
+            controller: 'Perfil',
+             controllerAs: 'vm'
+          }
+        },
+         authenticate: true
+      })  
+
+
+     .state('app.pagos', {
+        url: '/pagos',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/pagos/pagos.html',
+            controller: 'Pagos',
+             controllerAs: 'vm'
+          }
+        },
+          cache:false,
+         authenticate: true
+      })  
+
+
+    .state('app.arriendos', {
+        url: '/arriendos',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/arriendos/arriendos.html',
+            controller: 'Arriendos',
+             controllerAs: 'vm'
+          }
+        },
+        cache:false,
+         authenticate: true
+      })  
+
+
+
+      .state('app.tarjeta', {
+        url: '/tarjeta',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/tarjeta/tarjeta.html',
+            controller: 'Tarjeta',
+             controllerAs: 'vm'
+          }
+        },
+         authenticate: true
+      })  
 
 
       .state('app.sensor', {
@@ -57,28 +225,18 @@
             controller: 'Sensor',
              controllerAs: 'vm'
           }
-        }
+        },
+         authenticate: true
       })
       
    
-      
-      .state('app.settings', {
-        url: '/settings',
-        views: {
-          'menuContent': {
-            templateUrl: 'app/settings/settings.html',
-            controller: 'Settings',
-            controllerAs: 'vm',
-            resolve: {
-              resolvedSettings: function(Storage){
-                return Storage.getUserSettings();
-              }
-            }
-          }
-        }
+
+      $urlRouterProvider.otherwise(function ($injector, $location) {
+        var $state = $injector.get("$state");
+        $state.go("login");
       });
 
-      $urlRouterProvider.otherwise('/login');
+    
 
     // catch Angular errors
     $provide.decorator('$exceptionHandler', ['$delegate', function($delegate){

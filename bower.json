@@ -8,6 +8,10 @@
   },
   "dependencies": {
     "ngmap": "^1.17.6",
-    "angular-gravatar": "^0.4.2"
+    "angular-gravatar": "^0.4.2",
+    "angular-rut": "^1.0.1",
+    "angular-moment": "^1.0.0",
+    "angular-date-time-input": "^1.2.1",
+    "ionic-rating": "^0.3.0"
   }
 }

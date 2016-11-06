@@ -1,0 +1,33 @@
+ <div class="modal">
+ <ion-header-bar class="bar-verde">
+        <button class="button button-outline button-bar-parking" ng-click="vm.modal.hide()">Cerrar</button>
+      <h1 class="title">Nuevo Bloque de horario </h1>
+      <button class="button button-outline button-bar-parking" ng-disabled="vm.formHorario.$invalid" ng-click="vm.create()">Agregar</button>
+    </ion-header-bar>
+        <ion-content>
+        <div class="direccion">Ingrese los datos del formulario para un nuevo horario</div>
+         <form name="vm.formHorario"  novalidate class="for-general"> 
+           <div class="item item-divider">
+      Para el día
+            </div>
+              <label class="item item-input" >
+            <input  type="date" ng-model="vm.data.horario.dia" min="{{vm.hoy | date:'yyyy-MM-dd'}}" ng-required='true'>
+          </label> 
+           <div class="item item-divider">
+      Hora Inicio
+            </div>
+          <label class="item item-input" >
+            <input type="time" placeholder="HH:mm" min="00:00:00" max="24:00:00" ng-model="vm.data.horario.horaInicio" ng-required='true'>
+          </label>  
+         <div class="item item-divider">
+      Hora Termino
+            </div>
+              <label class="item item-input" >
+            <input type="time" placeholder="HH:mm" min="{{vm.data.horario.horaInicio  | date:'HH:mm:ss'}}" max="24:00:00" ng-model="vm.data.horario.horaTermino" ng-required='true'>
+          </label> 
+
+       </form>  
+      
+
+        </ion-content> 
+<div >

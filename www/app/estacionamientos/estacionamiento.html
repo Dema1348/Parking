@@ -1,0 +1,61 @@
+<ion-view title="PARKING" >
+  <ion-nav-buttons side="secondary">
+    <button class="button button-bar-send" ng-click="vm.send(vm.data.estacionamiento)" ng-disabled="vm.formEstacionamiento.$invalid ||  !vm.data.estacionamiento.comunaId  ">
+    Enviar
+    </button>
+</ion-nav-buttons>
+
+ <ion-content >
+
+	 <form name="vm.formEstacionamiento"  novalidate class="for-general">
+	 	<h1 class="titulo">Ingrese los datos del formulario para crear un nuevo estacionamiento</h1>
+	       <div class="list padding">
+	       	<h1 class="sub-titulo">Geolocalización </h1>
+	      	<div  class=" mapWrap2" data-tap-disabled="true">
+
+  	  <ng-map  id="map-estacionamiento" zoom="14" center="current-position"  styles='[{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]' on-click="vm.setCenter(event)" >
+  		<marker icon="{{vm.customIcon}}" position="{{vm.data.pos.lat}},{{vm.data.pos.lng}}"  centered="true" ></marker>
+		 </ng-map>
+		</div>
+	  
+	        <label class="item item-input" ng-class="{ 'has-errors' : vm.formEstacionamiento.costo.$invalid && vm.formEstacionamiento.costo.$touched}">
+	          <input type="number" placeholder="Costo" ng-model="vm.data.estacionamiento.costo" ng-required='true' name="costo" min="0">
+	        </label>  
+	          <label class="item item-input item-select">
+	           <div class="input-label">
+	              Estado
+	            </div>
+	            <select ng-init="" ng-model="vm.data.estacionamiento.estado">
+	              <option value="1">Habilitado</option>
+	              <option value="0">Desabilitado</option>
+	            </select>
+	          </label>
+	           <label class="item item-input item-select">
+	            <div class="input-label">
+	              Region
+	            </div>
+	            <select ng-model="vm.data.region" ng-options="region.id as region.nombre for region in vm.data.regiones" ng-change="vm.getProvicias(vm.data.region)">
+	            </select>
+	          </label>
+	           <label class="item item-input item-select">
+	            <div class="input-label">
+	              Provincia
+	            </div>
+	            <select ng-model="vm.data.provincia"  ng-options="provincia.id as provincia.nombre for provincia in vm.data.provincias" ng-change="vm.getComunas(vm.data.provincia)">
+	            </select>
+	          </label>
+	            <label class="item item-input item-select">
+	            <div class="input-label" required='true'>
+	              Comuna
+	            </div>
+	            <select ng-model="vm.data.estacionamiento.comunaId"  ng-options="comuna.id as comuna.nombre for comuna in vm.data.comunas">
+	            </select>
+	          </label>
+	        
+	  
+	      </div>
+	</form>
+	 
+
+</ion-content>
+</ion-view>

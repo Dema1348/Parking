@@ -1,0 +1,25 @@
+<ion-view  title="PARKING">
+  <ion-nav-buttons side="secondary" >
+  <button class="button button-outline button-bar-parking" ng-disabled="vm.isToday()" ng-click="vm.today()">
+    Hoy
+    </button>
+    <button class="button button-outline button-bar-parking icon-left ion-plus-round" ng-click="vm.openModal()" ng-if="!vm.data.isArriendo">
+    Agregar
+    </button>
+</ion-nav-buttons>
+
+ <ion-content  >
+ <calendar ng-model="vm.calendar.currentDate"
+           no-events-label="Sin bloques disponibles" 
+           weekview-all-day-event-template-url="vm.calendar.week"
+           weekview-normal-event-template-url="vm.calendar.event"
+           all-day-label="Día"
+           format-hour-column="HH"
+           calendar-mode="vm.calendar.mode" 
+           event-source="vm.calendar.eventSource"
+           range-changed="vm.reloadSource(startTime, endTime)"
+           event-selected="vm.onEventSelected(event)" 
+           title-changed="vm.onViewTitleChanged(title)"
+           time-selected="vm.onTimeSelected(selectedTime, events)" step="30"></calendar>
+</ion-content>
+</ion-view>

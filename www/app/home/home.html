@@ -1,11 +1,11 @@
-<ion-view title="Parking">
+<ion-view title="PARKING">
 
   <ion-content scroll="false">
       
-        <div map-lazy-load="https://maps.google.com/maps/api/js" class="mapWrap"  data-tap-disabled="true">
-         <ng-map zoom="{{vm.data.range}}" center="current-position" disable-default-u-i="true "  styles='[{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]' on-click="vm.setCenter(event)" >
+        <div  class="mapWrap"  data-tap-disabled="true">
+         <ng-map id="map-home" zoom="{{vm.data.range}}" center="current-position" disable-default-u-i="true "  styles='[{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]' on-click="vm.setCenter(event)" >
           <marker icon="{{vm.customIcon}}" position="{{vm.data.pos.lat}},{{vm.data.pos.lng}}"  centered="true" ></marker>
-           <marker  icon="/img/markerParking.png" ng-repeat="p in vm.data.parkings" position="{{p.geo}}"  data="{{ vm.data.parkings[$index]}}" on-click="vm.showParking()"></marker>
+           <marker  icon="/img/mapa1.png" ng-repeat="p in vm.data.parkings" position="{{p.geo}}"  data="{{ vm.data.parkings[$index]}}" on-click="vm.showParking()"></marker>
         </ng-map>
        
         </div>
@@ -26,39 +26,50 @@
           </div>
     </ion-content>
     <script id="parking-modal.html" type="text/ng-template">
-      <ion-modal-view style="width: 80%; height: 60%; min-height: 0; top: 10%; left: 10%; right: 10%; bottom: 0;">
+      <ion-modal-view >
+        <ion-header-bar class="bar-verde">
+      <h1 class="title">Información del estacionamiento</h1>
+      <button class="button button-outline button-bar-parking" ng-click="vm.modal.hide()">Cerrar</button>
+    </ion-header-bar>
         <ion-content>
         <div class="direccion">
-        {{vm.data.selectParking.direccion}}
+        {{vm.data.selectParking.direccion || "Buscando dirección"}}
         </div>
-        <div class="foto" back-img="img/parking.jpg">
-        </div>
+        <div  class=" mapWrap3" data-tap-disabled="false">
+                <ng-map  id="map-estacionamiento-modal" zoom="14"  center="{{vm.data.selectParking.geo}}" styles='[{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]'  disable-default-u-i="true" map-type-id="SATELLITE"
+      tilt="45"
+      heading="90" zoom-to-include-markers="true">
+                <marker icon="/img/mapa1.png" position="{{vm.data.selectParking.geo}}"  centered="true" ></marker>
+               </ng-map>
+         </div>
        <div class="dueno">
            <div class="row">
            <div class="col col-50">
              <i class="icon ion-ios-person-outline"></i> 
-            {{vm.data.selectParking.dueno.nombre +" "+vm.data.selectParking.dueno.apPaterno}}
+            Dueño {{vm.data.selectParking.dueno.nombre +" "+vm.data.selectParking.dueno.apPaterno}}
             </div>
            
             <div class="col col-50">
-             <i class="icon ion-ios-location-outline"></i>  {{vm.data.selectParking.comuna}}
+             <i class="icon ion-ios-location-outline"></i> Comuna {{vm.data.selectParking.comuna}}
             </div>
           </div>
           <div class="row">
              <div class="col col-50 ">
-              <i class="icon ion-ios-telephone-outline"></i> {{vm.data.selectParking.dueno.telefono}}
+              <i class="icon ion-ios-telephone-outline"></i> Telefono {{vm.data.selectParking.dueno.telefono}}
             </div>
             <div class="col col-50">
-             <i class="icon ion-ios-email-outline"></i>  {{vm.data.selectParking.dueno.correo}}</div>
+             <i class="icon ion-ios-email-outline"></i> Correo {{vm.data.selectParking.dueno.correo}}</div>
           </div>
        </div>  
         <div class="footer">
-          <div class="costo" >{{vm.data.selectParking.costo | currency:$:0}} por hora cada hora</div>
-          <div class="info" >Ver horarios disponibles </div>
+          <div class="costo" >{{vm.data.selectParking.costo | currency:$:0}} por cada hora</div>
+          <div class="info" ng-click="vm.verHorarios(vm.data.selectParking)">
+            Ver horarios disponibles
+           </div>
         </div>
 
         </ion-content>     
       </ion-modal-view>
-    </script
+    </script>
 </ion-view>
 

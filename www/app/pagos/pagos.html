@@ -1,0 +1,31 @@
+<ion-view title="PARKING" >
+ <ion-content >
+   <form name="vm.formEstacionamiento"  novalidate class="for-general">
+         <div class="card">
+          <div class="item item-divider">
+           Pagos
+          </div>
+          <div class="row table-head">
+            <div class="col col-10">#</div>
+             <div class="col col-20 ">Fecha</div>
+            <div class="col col-20 ">Hora Entrada</div>
+            <div class="col col-20 ">Hora Salida</div>
+            <div class="col col-10 ">Total</div>
+            <div class="col col-10">Estado</div>
+            <div class="col col-10">Tipo</div>
+          </div>
+          <div class="row table-body" ng-repeat="pago in vm.data.pagos">
+          <div class="col col-10">Nº{{$index +1}}</div>
+          <div class="col col-20 ">{{pago.horaEntrada  | amDateFormat:'dddd Do MMMM, YYYY'}}</div>
+           <div class="col col-20 ">{{pago.horaEntrada | date :'shortTime'}}</div>
+            <div class="col col-20 ">{{pago.horaSalida | date :'shortTime'}}</div>
+            <div class="col col-10">{{pago.total}}</div>
+            <div class="col col-10">{{pago.estadoPago}}</div>
+            <div class="col col-10 ">{{pago.type=='DUEÑO'?'ARRIENDO':'SERVICIO'}}</div>
+          </div>
+          <div class="col" ng-if="!vm.data.pagos">Sin movimiento de pagos</div>
+        </div>
+  </form>
+  <p class="padding declaimer">* Los pagos del tipo A fueron ya aprovados por el banco, y los del tipo R indican que hubo un problema al facturar el pago, por favor si fue el arrendatario de un estacionamiento y su pago quedo rechazado contáctese con su banco.</p>
+</ion-content>
+</ion-view>

@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="false">
 
-  <ion-side-menu-content>
+  <ion-side-menu-content expose-aside-when="large">
     <ion-nav-bar class="bar-gris">
       <ion-nav-back-button></ion-nav-back-button>
       <ion-nav-buttons side="left">
@@ -20,35 +20,48 @@
               <img class="user-image" gravatar-src="vm.data.user.correo">
           </div>
           <h2 class="name">{{vm.data.user.nombre}} {{vm.data.user.apPaterno}} </h2>
-          <p class="correo" >{{vm.data.user.correo}} </p>
+          <p class="correo" >{{vm.data.user.rol==0?'Cliente':'Dueño'}} </p>
         </ion-item>
          <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.home">
           <i class="icon ion-ios-search-strong"></i>
           <h2 class="menu-text">Mapa</h2>
         </ion-item>
-          <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.home">
+          <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.comuna">
+          <i class="icon ion-ios-search-strong"></i>
+          <h2 class="menu-text">Comuna</h2>
+        </ion-item>
+         <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.estacionamientos" ng-if="vm.data.user.rol==1">
+          <i class="icon ion-podium"></i>
+          <h2 class="menu-text">Estacionamientos</h2>
+        </ion-item>
+        <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.estacionamientosDenegado" ng-if="vm.data.user.rol==0">
+          <i class="icon ion-podium"></i>
+          <h2 class="menu-text">Estacionamiento</h2>
+        </ion-item>
+        <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.arriendos" >
+          <i class="icon ion-calendar"></i>
+          <h2 class="menu-text">Mis Arriendos</h2>
+        </ion-item>
+          <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.tarjeta">
           <i class="icon ion-card"></i>
           <h2 class="menu-text">Tarjeta</h2>
         </ion-item>
-          <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.home">
+          <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.autos">
           <i class="icon ion-model-s"></i>
           <h2 class="menu-text">Autos</h2>
         </ion-item>
          </ion-item>
-         <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.home">
-          <i class="icon ion-podium"></i>
-          <h2 class="menu-text">Estacionamientos</h2>
-        </ion-item>
-         <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.home">
+        
+         <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.pagos">
           <i class="icon ion-cash"></i>
           <h2 class="menu-text">Pagos</h2>
         </ion-item>
-         <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.home">
+         <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.perfil">
           <i class="icon ion-person"></i>
           <h2 class="menu-text">Perfil</h2>
         </ion-item>
         </ion-item>
-        <ion-item class="item-icon-left item-menu footer" nav-clear menu-close ui-sref="/" ng-click="vm.logout()">
+        <ion-item class="item-icon-left item-menu footer" nav-clear menu-close ui-sref="app.estacionamientos" ng-click="vm.logout()">
           <i class="icon ion-log-out"></i>
           <h2 class="menu-text">Salir</h2>
         </ion-item>
