@@ -1,7 +1,7 @@
 <ion-view title="PARKING" >
  <ion-content >
    <form name="vm.formEstacionamiento"  novalidate class="for-general">
-         <div class="card">
+       <!--   <div class="card">
           <div class="item item-divider">
            Pagos
           </div>
@@ -24,7 +24,49 @@
             <div class="col col-10 ">{{pago.type=='DUEÑO'?'ARRIENDO':'SERVICIO'}}</div>
           </div>
           <div class="col" ng-if="!vm.data.pagos">Sin movimiento de pagos</div>
-        </div>
+        </div> -->
+          <div class="card"  ng-repeat="pago in vm.data.pagos">
+            <div class="item item-divider">
+             Pagos Nº{{$index +1}}
+            </div>
+           <div class="item">
+              Fecha 
+              <span class="item-note">
+                {{pago.horaEntrada  | amDateFormat:'dddd Do MMMM, YYYY'}}
+              </span>
+           </div>
+          <div class="item">
+              Hora Entrada 
+              <span class="item-note">
+                {{pago.horaEntrada | date :'shortTime'}}
+              </span>
+           </div>
+          <div class="item">
+              Hora Salida 
+              <span class="item-note">
+               {{pago.horaSalida | date :'shortTime'}}
+              </span>
+           </div>
+          <div class="item">
+              Total 
+              <span class="item-note">
+                {{pago.total | currency:$:0}}
+              </span>
+           </div>
+          <div class="item">
+              Estado 
+              <span class="item-note">
+                {{pago.estadoPago}}
+              </span>
+           </div>
+             <div class="item">
+              Tipo 
+              <span class="item-note">
+               {{pago.type=='DUEÑO'?'Arriendo':'Servicio'}}
+              </span>
+           </div>
+  
+       </div>
   </form>
   <p class="padding declaimer">* Los pagos del tipo A fueron ya aprovados por el banco, y los del tipo R indican que hubo un problema al facturar el pago, por favor si fue el arrendatario de un estacionamiento y su pago quedo rechazado contáctese con su banco.</p>
 </ion-content>

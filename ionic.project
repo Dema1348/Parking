@@ -1,6 +1,12 @@
 {
   "name": "app-plantilla",
   "app_id": "",
+  "proxies": [
+    {
+      "path": "/v1",
+      "proxyUrl": "http://10.16.47.236:10010"
+    }
+  ],
   "gulpStartupTasks": [
     "sass",
     "watch"

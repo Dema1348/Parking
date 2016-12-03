@@ -4,7 +4,7 @@
     .module('app.autos')
     .controller('Autos', Autos);
 
-  function Autos($scope, $state, store,UiUtils,HOST){
+  function Autos($scope, $state, store,UiUtils,HOST,Loader,Message){
     var vm = this;
     vm.getAutos= getAutos;
     vm.formEstacionamiento={};
@@ -16,6 +16,7 @@
  	  getAutos();
 
     function getAutos() {
+      Loader.show(Message.loader);
       new SwaggerClient({
       url: HOST,
       usePromise: true
@@ -32,7 +33,7 @@
             UiUtils.showError(error.obj.message)
           })
           .finally(function() {
-	       $scope.$broadcast('scroll.refreshComplete');
+	         Loader.hide();
 	     });
       });
 

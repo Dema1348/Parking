@@ -68,6 +68,7 @@
       url: HOST,
       usePromise: true
       }).then(function(client) {
+        console.log(estacionamiento);
         if(estacionamiento.estado == 0){
            client.Estacionamiento.enabled({api_key:store.get('user').token,id:estacionamiento.id})
           .then(function(result) {

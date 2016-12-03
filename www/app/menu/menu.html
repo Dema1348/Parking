@@ -20,7 +20,7 @@
               <img class="user-image" gravatar-src="vm.data.user.correo">
           </div>
           <h2 class="name">{{vm.data.user.nombre}} {{vm.data.user.apPaterno}} </h2>
-          <p class="correo" >{{vm.data.user.rol==0?'Cliente':'Dueño'}} </p>
+          <p class="rate" ><rating readonly="true" ng-model="vm.data.user.rate" max="5" disabled></rating></p>
         </ion-item>
          <ion-item class="item-icon-left item-menu" nav-clear menu-close ui-sref="app.home">
           <i class="icon ion-ios-search-strong"></i>

@@ -5,7 +5,7 @@
         <div  class="mapWrap"  data-tap-disabled="true">
          <ng-map id="map-home" zoom="{{vm.data.range}}" center="current-position" disable-default-u-i="true "  styles='[{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]' on-click="vm.setCenter(event)" >
           <marker icon="{{vm.customIcon}}" position="{{vm.data.pos.lat}},{{vm.data.pos.lng}}"  centered="true" ></marker>
-           <marker  icon="/img/mapa1.png" ng-repeat="p in vm.data.parkings" position="{{p.geo}}"  data="{{ vm.data.parkings[$index]}}" on-click="vm.showParking()"></marker>
+           <marker  icon="img/mapa1.png" ng-repeat="p in vm.data.parkings" position="{{p.geo}}"  data="{{ vm.data.parkings[$index]}}" on-click="vm.showParking()"></marker>
         </ng-map>
        
         </div>

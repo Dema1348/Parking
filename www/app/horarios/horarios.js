@@ -23,8 +23,8 @@
     vm.calendar = {};
     vm.calendar.eventSource = [];
     vm.calendar.mode="week";
-    vm.calendar.week="app/horarios/week.html";
-    vm.calendar.event="app/horarios/event.html"
+    vm.calendar.week ="/app/horarios/week.html";
+    vm.calendar.event="/app/horarios/event.html";
 
     
 
@@ -44,7 +44,7 @@
           console.log(result);
           var events = [];
           for (var i = 0; i < result.obj.length; i++) {
-            events.push({title:result.obj[i].type=='Ocupado'?'Reservado':'Bloque',
+            events.push({title:result.obj[i].type=='Ocupado'?'Ocupado':'Libre',
                                            allDay:false,
                                            idReserva: result.obj[i].idReserva,
                                            id:result.obj[i].idHorario,
@@ -135,6 +135,9 @@
             client.User.findAutos({api_key:store.get('user').token})
               .then(function(result) {
                vm.data.autos=result.obj;
+               if(!vm.data.autos.length){
+                  UiUtils.showError("DEBE CREAR UN AUTO PARA REALIZAR UNA RESERVA")
+               }
               })
               .catch(function(error) {
                 console.dir(error);

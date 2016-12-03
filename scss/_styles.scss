@@ -272,8 +272,12 @@ ion-side-menu .heading-item .name {
   padding-bottom: 4px;
   margin-top: -4px;
 }
-ion-side-menu .heading-item .correo {
-  color: $gris-text; 
+ion-side-menu .heading-item .rate {
+      ul.rating li i {
+        font-size: 30px;
+        color: #06BEBD;
+        margin: 0 -22px 0px 0px;
+    }
 }
 
 //barra de menu
@@ -493,6 +497,11 @@ ng-map {
     background: $cuerpo-text!important;
 }
 
+.calendar-event {
+    width:  100%!important;
+    left: 0%!important;
+  }
+
 //Table
 .table-head{
   color:$titulo-text!important;
@@ -505,6 +514,10 @@ ng-map {
 .declaimer{
   color:$cuerpo-text!important;
   font-style: italic;
+}
+
+.item-note{
+  color:$gris;
 }
 
 //UTILS

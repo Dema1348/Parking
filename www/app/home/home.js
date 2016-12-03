@@ -17,7 +17,7 @@
     vm.showParking=showParking;
     vm.verHorarios=verHorarios;
     vm.customIcon = {
-        "url": "/img/mapa2.png"
+        "url": "img/mapa2.png"
     };
 
 
@@ -183,6 +183,7 @@
 
         califacion.then(function(data) {
           if(data){
+            console.log(data);
             enviarCalificacion(data.id,data.rate);
           }
         })

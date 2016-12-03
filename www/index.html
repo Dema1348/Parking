@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src gap://ready file://* *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *">
     <title>Parking</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <!-- compiled css output -->
@@ -26,7 +27,7 @@
     <script src="lib/angular-date-time-input/src/dateTimeInput.js"></script>
     <script src="lib/ionic-rating/ionic-rating.min.js"></script>
    
-    <script src="lib/ionic-calendar/dist/js/calendar-tpls.min.js"></script>
+    <script src="lib/ionic-calendar/dist/js/calendar-tpls.js"></script>
 
 
 
@@ -47,6 +48,8 @@
     <script src="app/common/utils.js"></script>
     <script src="app/common/ui/utils.js"></script>
     <script src="app/common/ui/generic-filters.js"></script>
+    <script src="app/common/loader.js"></script>
+    <script src="app/common/message.js"></script>
 
     <!--  core's js -->
     <script src="app/core/core.module.js"></script>
@@ -56,7 +59,7 @@
     <script src="app/core/services.js"></script>
     <script src="app/core/directives.js"></script>
     <script src="app/core/angular-locale_es-cl.js"></script>
-
+    
 
    
 
